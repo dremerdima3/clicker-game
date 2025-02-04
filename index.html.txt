@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кликер-Игра</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🖱️ Кликер-Игра</h1>
+    <div id="score">0</div>
+    <button id="click-button">Кликни меня!</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
