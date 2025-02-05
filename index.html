@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кликер-Игра</title>
+    <title>😺 Кликер с Котиком</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>🖱️ Кликер-Игра</h1>
-    <div id="score">0</div>
-    <button id="click-button">Кликни меня!</button>
+    <h1>😺 Кликер с Котиком</h1>
+    <div id="score">Очки: 0</div>
+
+    <!-- Основная кнопка — котик -->
+    <img src="cat.png" id="click-button" alt="Кликни на котика!">
+
+    <!-- Магазин для покупок -->
+    <div id="shop">
+        <h2>🛒 Магазин улучшений</h2>
+        <button class="upgrade" data-cost="10" data-power="10">Мышка (+10 очков) — 10 очков</button>
+        <button class="upgrade" data-cost="50" data-power="20">Коготки (+20 очков) — 50 очков</button>
+    </div>
 
     <script src="app.js"></script>
 </body>
