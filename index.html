@@ -3,27 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>😺 Мега Кот-Кликер</title>
+    <title>Кликер Игра с Магазином</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="score">Очки: 0</div>
-
-    <!-- Огромная круглая кнопка -->
-    <button id="click-button"></button>
-
-    <!-- Кнопка для открытия магазина -->
-    <button id="open-shop">🛒</button>
-
-    <!-- Магазин (модальное окно) -->
-    <div id="shop-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>🛒 Магазин улучшений</h2>
-            <button class="upgrade" data-cost="50" data-power="1">Бонусный Коготь (+1 автоклик/сек) — 50 очков</button>
-            <button class="upgrade" data-cost="150" data-click="5">Улучшить клик (+5 очков за клик) — 150 очков</button>
-        </div>
-    </div>
+    <div id="counter">Клики: 0</div>
+    <button id="click-button">Клик</button>
+    <button id="shop-button">Магазин</button>
+    <div id="shop"></div>
 
     <script src="app.js"></script>
 </body>
