@@ -1,9 +1,11 @@
-let clicks = 0;
+let score = 0; // Начальные очки
 
-const counter = document.getElementById('counter');
-const clickButton = document.getElementById('click-button');
+// Получаем элементы
+const scoreDisplay = document.getElementById('score');
+const clickButton = document.getElementById('clickButton');
 
+// Обработчик события нажатия на кнопку
 clickButton.addEventListener('click', () => {
-    clicks++;
-    counter.textContent = `Клики: ${clicks}`;
+    score += 1; // Увеличиваем счет
+    scoreDisplay.textContent = score; // Обновляем отображение счета
 });
