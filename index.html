@@ -3,28 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>😺 Мега Кот-Кликер</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="score">Очки: 0</div>
+    <div class="container">
+        <!-- Кнопка магазина -->
+        <button id="shopButton">Магазин</button>
+        <div id="counter">0</div>
+        <button id="clickButton">
+            <img src="apple.png" alt="Кликни меня!" id="clickImage">
+        </button>
+        <div class="energy-bar">
+            <div id="energy"></div>
+        </div>
+        <div id="energy-text">Энергия: <span id="energy-value">300</span>/<span id="max-energy">300</span></div>
+    </div>
 
-    <!-- Огромная круглая кнопка -->
-    <button id="click-button"></button>
-
-    <!-- Кнопка для открытия магазина -->
-    <button id="open-shop">🛒</button>
-
-    <!-- Магазин (модальное окно) -->
-    <div id="shop-modal" class="modal">
+    <!-- Модальное окно магазина -->
+    <div id="shopModal" class="modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>🛒 Магазин улучшений</h2>
-            <button class="upgrade" data-cost="50" data-power="1">Бонусный Коготь (+1 автоклик/сек) — 50 очков</button>
-            <button class="upgrade" data-cost="150" data-click="5">Улучшить клик (+5 очков за клик) — 150 очков</button>
+            <span class="close">&times;</span>
+            <h2>Магазин</h2>
+            <div class="upgrade">
+                <h3>Улучшение клика</h3>
+                <p>Клик дает в 2 раза больше очков, но тратит в 2 раза больше энергии.</p>
+                <button id="upgradeClick">Купить (<span id="upgradeClickPrice">50</span> очков)</button>
+            </div>
+            <div class="upgrade">
+                <h3>Увеличение энергии</h3>
+                <p>Максимальная энергия увеличивается на 60 единиц.</p>
+                <button id="upgradeEnergy">Купить (<span id="upgradeEnergyPrice">50</span> очков)</button>
+            </div>
+            <div class="upgrade">
+                <h3>Ускорение восстановления</h3>
+                <p>Скорость восстановления энергии увеличивается на 10%.</p>
+                <button id="upgradeRestore">Купить (<span id="upgradeRestorePrice">50</span> очков)</button>
+            </div>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
