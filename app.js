@@ -1,16 +1,16 @@
 // Инициализация Telegram Web App
 const tg = window.Telegram.WebApp;
 
-// Показать кнопку "Закрыть"
+// Инициализация
+tg.expand(); // Развернуть приложение на весь экран
 tg.MainButton.show();
 tg.MainButton.setText("Закрыть");
 tg.MainButton.onClick(() => tg.close());
 
-// Получить данные пользователя
+// Получение данных пользователя
 const user = tg.initDataUnsafe.user;
 if (user) {
-    console.log("Имя пользователя:", user.first_name);
-    console.log("ID пользователя:", user.id);
+    console.log("Привет, " + user.first_name + "!");
 }
 
 let counter = 0;
