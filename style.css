@@ -1,3 +1,4 @@
+/* Общие стили */
 body {
     font-family: Arial, sans-serif;
     background-color: #1C1C1E;
@@ -7,74 +8,64 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
 }
 
 .container {
     text-align: center;
-    position: relative;
+    width: 90%;
+    max-width: 400px; /* Ограничиваем ширину контейнера для удобства */
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #FF3B30;
+    margin-bottom: 20px;
 }
 
 #counter {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin: 20px 0;
-    color: #555;
+    color: #FF3B30;
 }
 
 #clickButton {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background-color: transparent; /* Прозрачный фон */
+    background-color: transparent;
     border: none;
     cursor: pointer;
-    padding: 0; /* Убираем внутренние отступы */
-    overflow: hidden; /* Обрезаем картинку, если она выходит за границы */
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
 #clickButton img {
-    width: 100%; /* Картинка занимает всю ширину кнопки */
-    height: 100%; /* Картинка занимает всю высоту кнопки */
-    object-fit: cover; /* Картинка масштабируется, чтобы заполнить кнопку */
-    border-radius: 50%; /* Скругляем углы картинки */
-    transition: transform 0.2s ease; /* Анимация при нажатии */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
 }
 
 #clickButton:hover img {
-    transform: scale(1.05); /* Увеличиваем картинку при наведении */
+    transform: scale(1.05);
 }
 
 #clickButton:active img {
-    transform: scale(0.95); /* Уменьшаем картинку при нажатии */
-}
-
-#clickButton:disabled img {
-    opacity: 0.5; /* Полупрозрачная картинка, если кнопка отключена */
-    cursor: not-allowed;
-}
-
-#clickButton:hover {
-    background-color: #FF1A1A;
-}
-
-#clickButton:active {
     transform: scale(0.95);
 }
 
-#clickButton:disabled {
-    background-color: #AEAEB2;
+#clickButton:disabled img {
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
 .energy-bar {
-    width: 300px;
-    height: 20px;
+    width: 100%;
+    height: 15px;
     background-color: #AEAEB2;
     border-radius: 10px;
     overflow: hidden;
@@ -89,12 +80,13 @@ h1 {
 }
 
 #energy-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #AEAEB2;
 }
 
+/* Стили для магазина */
 #shopButton {
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 10px;
     padding: 10px 20px;
@@ -110,7 +102,6 @@ h1 {
     background-color: #FF1A1A;
 }
 
-/* Стили для модального окна */
 .modal {
     display: none;
     position: fixed;
@@ -127,7 +118,8 @@ h1 {
     background-color: #2C2C2E;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    width: 90%;
+    max-width: 300px;
     text-align: center;
     color: #AEAEB2;
 }
@@ -139,10 +131,6 @@ h1 {
     color: #FF3B30;
 }
 
-.upgrade {
-    margin-bottom: 20px;
-}
-
 .upgrade button {
     padding: 10px;
     background-color: #FF9500;
@@ -150,8 +138,48 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 .upgrade button:hover {
     background-color: #FF7F00;
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #counter {
+        font-size: 2rem;
+    }
+
+    #clickButton {
+        width: 100px;
+        height: 100px;
+    }
+
+    .energy-bar {
+        height: 10px;
+    }
+
+    #energy-text {
+        font-size: 0.9rem;
+    }
+
+    #shopButton {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 15px;
+    }
+
+    .upgrade button {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
 }
