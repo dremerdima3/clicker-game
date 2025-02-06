@@ -1,3 +1,18 @@
+// Инициализация Telegram Web App
+const tg = window.Telegram.WebApp;
+
+// Показать кнопку "Закрыть"
+tg.MainButton.show();
+tg.MainButton.setText("Закрыть");
+tg.MainButton.onClick(() => tg.close());
+
+// Получить данные пользователя
+const user = tg.initDataUnsafe.user;
+if (user) {
+    console.log("Имя пользователя:", user.first_name);
+    console.log("ID пользователя:", user.id);
+}
+
 let counter = 0;
 let energy = 300;
 let maxEnergy = 300;
