@@ -1,115 +1,157 @@
 body {
-    background-color: #fef6e4;
+    font-family: Arial, sans-serif;
+    background-color: #1C1C1E;
+    color: #AEAEB2;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
     text-align: center;
     position: relative;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FF3B30;
+}
+
+#counter {
+    font-size: 3rem;
+    margin: 20px 0;
+    color: #555;
+}
+
+#clickButton {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: transparent; /* Прозрачный фон */
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Убираем внутренние отступы */
+    overflow: hidden; /* Обрезаем картинку, если она выходит за границы */
+}
+
+#clickButton img {
+    width: 100%; /* Картинка занимает всю ширину кнопки */
+    height: 100%; /* Картинка занимает всю высоту кнопки */
+    object-fit: cover; /* Картинка масштабируется, чтобы заполнить кнопку */
+    border-radius: 50%; /* Скругляем углы картинки */
+    transition: transform 0.2s ease; /* Анимация при нажатии */
+}
+
+#clickButton:hover img {
+    transform: scale(1.05); /* Увеличиваем картинку при наведении */
+}
+
+#clickButton:active img {
+    transform: scale(0.95); /* Уменьшаем картинку при нажатии */
+}
+
+#clickButton:disabled img {
+    opacity: 0.5; /* Полупрозрачная картинка, если кнопка отключена */
+    cursor: not-allowed;
+}
+
+#clickButton:hover {
+    background-color: #FF1A1A;
+}
+
+#clickButton:active {
+    transform: scale(0.95);
+}
+
+#clickButton:disabled {
+    background-color: #AEAEB2;
+    cursor: not-allowed;
+}
+
+.energy-bar {
+    width: 300px;
+    height: 20px;
+    background-color: #AEAEB2;
+    border-radius: 10px;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
-#score {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
+#energy {
+    height: 100%;
+    width: 100%;
+    background-color: #FF9500;
+    transition: width 0.3s ease;
+}
+
+#energy-text {
+    font-size: 1.2rem;
+    color: #AEAEB2;
+}
+
+#shopButton {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 2;
-}
-
-/* Огромная круглая кнопка */
-#click-button {
-    width: 90vmin;
-    height: 90vmin;
-    background-color: #ff6b6b;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #FF3B30;
+    color: white;
     border: none;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.1s;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    font-size: 1rem;
 }
 
-#click-button:active {
-    transform: translate(-50%, -50%) scale(0.95);
+#shopButton:hover {
+    background-color: #FF1A1A;
 }
 
-/* Кнопка открытия магазина */
-#open-shop {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #ffb300;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    font-size: 24px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    z-index: 2;
-}
-
-#open-shop:hover {
-    background-color: #ffa000;
-}
-
-/* Стиль модального окна */
+/* Стили для модального окна */
 .modal {
     display: none;
     position: fixed;
-    z-index: 3;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: #2C2C2E;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 10px;
     width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    position: relative;
     text-align: center;
+    color: #AEAEB2;
 }
 
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
+.close {
+    float: right;
+    font-size: 1.5rem;
     cursor: pointer;
-    color: #ff6b6b;
+    color: #FF3B30;
 }
 
-/* Кнопки улучшений */
 .upgrade {
-    background-color: #ffd700;
-    color: #333;
+    margin-bottom: 20px;
+}
+
+.upgrade button {
+    padding: 10px;
+    background-color: #FF9500;
+    color: white;
     border: none;
-    padding: 12px;
-    margin: 10px 0;
-    font-size: 16px;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s;
-    width: 100%;
 }
 
-.upgrade:hover {
-    background-color: #ffb300;
-}
-
-.upgrade:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+.upgrade button:hover {
+    background-color: #FF7F00;
 }
