@@ -1,4 +1,3 @@
-// Инициализация Telegram Web App
 const tg = window.Telegram.WebApp;
 
 // Инициализация
@@ -13,7 +12,17 @@ if (user) {
     console.log("Привет, " + user.first_name + "!");
 }
 
+// Логика кликера
 let counter = 0;
+let energy = 300;
+const counterElement = document.getElementById('counter');
+const clickButton = document.getElementById('clickButton');
+
+clickButton.addEventListener('click', () => {
+    counter++;
+    counterElement.textContent = counter;
+});
+/*let counter = 0;
 let energy = 300;
 let maxEnergy = 300;
 let clickMultiplier = 1; // Множитель очков за клик
