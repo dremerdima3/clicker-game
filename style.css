@@ -1,87 +1,115 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f0f0f0;
-    height: 100vh;
+    background-color: #fef6e4;
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    position: relative;
     overflow: hidden;
 }
 
-#counter {
-    font-size: 36px;
-    margin: 20px 0;
+#score {
+    font-size: 28px;
     font-weight: bold;
+    color: #333;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
 }
 
+/* Огромная круглая кнопка */
 #click-button {
     width: 90vmin;
     height: 90vmin;
-    max-width: 300px;
-    max-height: 300px;
-    border-radius: 50%;
     background-color: #ff6b6b;
     border: none;
-    font-size: 30px;
-    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.1s;
-    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 #click-button:active {
-    transform: scale(0.95);
+    transform: translate(-50%, -50%) scale(0.95);
 }
 
-#shop-button {
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: white;
+/* Кнопка открытия магазина */
+#open-shop {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffb300;
+    color: #fff;
     border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    border-radius: 50%;
     cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+    z-index: 2;
 }
 
-#shop {
+#open-shop:hover {
+    background-color: #ffa000;
+}
+
+/* Стиль модального окна */
+.modal {
     display: none;
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ccc;
-    max-width: 300px;
-    width: 90%;
-    margin-top: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
 }
 
-.upgrade {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #e0e0e0;
-    cursor: pointer;
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
     text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff6b6b;
+}
+
+/* Кнопки улучшений */
+.upgrade {
+    background-color: #ffd700;
+    color: #333;
+    border: none;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
     border-radius: 8px;
-    transition: background-color 0.2s, transform 0.1s;
-    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
 }
 
 .upgrade:hover {
-    background-color: #d0d0d0;
-    transform: scale(1.05);
+    background-color: #ffb300;
 }
 
-#click-button::before {
-    content: "Клик";
-    position: absolute;
-    font-size: 36px;
-    color: white;
-    font-weight: bold;
+.upgrade:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
