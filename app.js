@@ -60,3 +60,4 @@ function renderShop() {
 }
 
 renderShop();
+
